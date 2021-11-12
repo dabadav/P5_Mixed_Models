@@ -1,0 +1,64 @@
+---
+title: "Practical 4 - Poisson Regression"
+author: "Dante Aviñó, Miguel Borge"
+date: "10/16/2021"
+output:
+  pdf_document:
+    latex_engine: xelatex
+---
+# 1. Poisson regression. We consider a data set containing a count variable (response y), and two predictors, x1 (quantitative) and x2 (binary).
+
+## a. Read the file poisson.dat into the R environment with the read.table instruction.
+```{r}
+setwd('C:/Users/Dante/Desktop/P4_Poisson')
+read.table(file = 'poisson.dat', header = FALSE, dec = '.', col.names = c('y','x1','x2'))
+```
+
+## b. Make a barplot of the table of the possible outcomes of the reponse variable y. Calculate descriptive statistics of response y. Is there, at the exploratory level, evidence that the response does not follow a Poisson distribution?
+
+## c. Perform Poisson regression of the number of y on x1, our first model. Report the regression equation. Is there evidence for association?
+
+## d. Make a scatter plot of y against x1. Add the fitted regression equation to the scatter plot.
+
+## e. Estimate the null model without predictors (y∼1), and also plot the equation according to this model to the plot. What do you observe?
+
+## f. Interpret the first model by quantifying the effect of the predictor on the average of the response. Give a 95% confidence interval for the parameter representing that effect.
+
+## g. Is the value 0 inside the interval you obtained? Is the value 1 inside the interval? What is the relevance of this?
+
+## h. Is there any indication that overdispersion is a problem for you model? Argue your answer.
+
+## i. Calculate deviance residuals according to the first model and plot these as a function of the predicted values, with different colour according to the values of x2. What do you observe?
+
+## j. Do a Poisson regression of y on x1 and x2. Report the fitted equation. Is there evidence for any effect of the x2 ? Argue your answer.
+
+## k. Does this new model suffer from overdispersion? Argue your answer.
+
+## l. Make a graphical by representing the fitted model in a scatterplot of y against x1.
+
+## m. Plot the residuals of this model against the predicted values, in the scale of the linear predictor. Do you think the residuals are well-behaved?
+
+## n. Use a LR test based on the deviance in order to compare the first model and the last model that includes x2. Report the test statistic, its reference distribution and the obtained p-value. Which model provides the best fit to the data?
+
+# 2. Mussel species. In an ecological study the dependence of the number of mussel species (Species), recorded for certain areas (Area in square miles) of American rivers (River), was studied as a function of the predictors Nitrate concentration, SolidResidue and Hydronium concentration.
+
+## a. Read the file mussels.dat into the R environment with the read.table instruction.
+
+## b. Explore the data by making a scatter plot matrix, and by making boxplots of the predictors Nitrate, SolidResidue and Hydronium. Do you suggest any transformations of the data?
+
+## c. Plot the logarithm of Species against the logarithm of Area. State your conclusions
+
+## d. Perform simple Poisson regression of the number of Species on log(Nitrate) accounting for the varying size of the Area. Report the regression results. Is there evidence for association with Nitrate?
+
+## e. Assess if overdispersion is a problem for this regression, and potentially refit an improved model if needed.
+
+## f. Repeat simple Poisson regressions for log(SolidResidue) and log(Hydronium) and state your conclusions.
+
+## g. Do a multipe Poisson regressions with the three transformed predictors. Is this model better than an intercept-only model?
+
+## h. Try to simplify the three-predictor model by removing non-significant terms, one by one. What is the final model you propose? What is your conclusion about the relationship of Species with these three predictors?
+
+## i. Calculate the deviance residuals according to this model, and plot them against the fitted values. Which river is most poorly explained by the model? Refit a model with log(Nitrate) without this river. State your conclusions.
+
+## j.  What is, according to this last model, the effect of a one-unit increase in log(Nitrate) on the response?
+
